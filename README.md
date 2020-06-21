@@ -1,5 +1,4 @@
-# shak-vue-weatherapp
-https://shakweather.netlify.com/
+# Vue-weatherapp
 
 ## Project setup
 ```
@@ -30,7 +29,3 @@ npm run lint
 ```
 npm run test:unit
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-"#simple vue weather app" 
