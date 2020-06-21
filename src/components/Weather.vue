@@ -1,18 +1,17 @@
 <template>
   <div v-if="weatherCache!=null">
     <v-container class="areaInfo">
-        <h4>{{weatherCache.location.name}}</h4>
-        <h5>{{weatherCache.location.region}}</h5>
-        <h5>{{weatherCache.location.country}}</h5>
+        <h4>{{weatherCache.name}}</h4>
+        <h5>{{weatherCache.sys.country}}</h5>
     </v-container>
 
     <v-container class="currentCondition" v-if="isTabFlagCurrent">
-      <img v-bind:src="weatherCache.current.condition.icon" />
-      <h3>{{weatherCache.current.feelslike_c}}°c</h3>
-      <h3>{{weatherCache.current.condition.text}} </h3>
+      <!-- <img v-bind:src="weatherCache.current.condition.icon" /> -->
+      <h3>{{weatherCache.main.feels_like}}°c</h3>
+      <h3>{{weatherCache.weather[0].main}} </h3>
     </v-container>
 
-    <v-container v-if="!isTabFlagCurrent">
+   <!--  <v-container v-if="!isTabFlagCurrent">
         <b-row name>
           <b-col v-for="day in weatherCache.forecast.forecastday" :key="day.id">
               <img v-bind:src="day.day.condition.icon" />
@@ -21,7 +20,7 @@
               <p>{{day.date}}</p>
           </b-col>
         </b-row>
-    </v-container>
+    </v-container> -->
  
   </div>
 </template>
@@ -37,7 +36,7 @@ export default {
   },
   mounted(){
     store.commit('setTabFlag',true)
-    store.dispatch('searchLocation', 'London')
+    store.dispatch('searchLocation', '')
   },
   computed:{
     weatherCache:() => store.getters['getWeatherCache'],

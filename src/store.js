@@ -18,7 +18,7 @@ export default new Vuex.Store({
   },
   actions: {
     async searchLocation({ getters, commit, dispatch }, payload) {
-      let wF = await service.getWeather(payload + '&days=7');
+      let wF = await service.getWeather(payload);
       commit('setWeatherCache', wF)
     }
   },
