@@ -1,32 +1,181 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+
     </div>
-    <router-view/>
+    <div class="container">
+  <div class="app">
+    <div class="header">
+      <img src="https://s5.postimg.org/7l2xf9mjr/mumbai.jpg" alt="">
+      <span class="city">
+            Mumbai, India
+            <i class="fa fa-map-marker"></i>
+            <span class="today">Today</span>
+      </span>
+      <span class="weather">
+            <span class="temp">
+              22<sup>&deg;</sup>
+              <span class="unit">c</span>
+      </span>
+      <span class="wind-scale">
+              <table>
+                <tr>
+                  <td>Wind Direction</td>
+                  <td>
+                    <i class="wi wi-wind towards-45-deg"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Wind Scale</td>
+                  <td>
+                    <i class="wi wi-wind-beaufort-7"></i>
+                  </td>
+                </tr>
+              </table>
+            </span>
+      <i class="wi wi-night-sleet"></i>
+      <span class="time">
+              <i class="wi wi-time-3"></i>
+            </span>
+      <span class="day">Monday</span>
+      </span>
+    </div>
+    <div class="body">
+      <span class="title">Weather Stats</span>
+      <div class="graph">
+        <ul>
+          <li class="graph-knob-mt-26">
+            <span class="graph-temp">
+                  <i class="wi wi-night-cloudy"></i>
+                  26<sup>&deg;</sup>
+                </span> 23
+          </li>
+          <li class="graph-knob-mt-25">
+            <span class="graph-temp">
+                  <i class="wi wi-lightning"></i>
+                  25<sup>&deg;</sup>
+                </span> 24
+          </li>
+          <li class="graph-knob-mt-28">
+            <span class="graph-temp">
+                  <i class="wi wi-night-cloudy-gusts"></i>
+                  28<sup>&deg;</sup>
+                </span> 25
+          </li>
+          <li class="today graph-knob-mt-22">
+            <span class="graph-temp">
+                  <i class="wi wi-night-sleet"></i>
+                  22<sup>&deg;</sup>
+                </span> 26
+          </li>
+          <li class="graph-knob-mt-20">
+            <span class="graph-temp">
+                  <i class="wi wi-night-alt-thunderstorm"></i>
+                  20<sup>&deg;</sup>
+                </span> 27
+          </li>
+          <li class="graph-knob-mt-18">
+            <span class="graph-temp">
+                  <i class="wi wi-smoke"></i>
+                  18<sup>&deg;</sup>
+                </span> 28
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer">
+      <span class="title">Friends</span>
+      <ul class="friends">
+        <li>
+          <img src="https://s5.postimg.org/bc7wnuaub/hardik.jpg" alt="">
+          <span class="friends-city-weather">
+                <i class="wi wi-night-sprinkle"></i>
+                <span class="temp">25<sup>&deg;</sup></span>
+          </span>
+          <span class="detail">
+                Hardik
+                <span class="city">
+                  Surat
+                </span>
+          <span class="country">
+                  India
+                </span>
+          </span>
+        </li>
+        <li>
+          <img src="https://s5.postimg.org/89bry7l9f/virat.jpg" alt="">
+          <span class="friends-city-weather">
+                <i class="wi wi-night-cloudy-high"></i>
+                <span class="temp">21<sup>&deg;</sup></span>
+          </span>
+          <span class="detail">
+                Virat
+                <span class="city">
+                  Delhi
+                </span>
+          <span class="country">
+                  India
+                </span>
+          </span>
+        </li>
+        <li>
+          <img src="https://s5.postimg.org/cfwmdjkv7/dhoni.jpg" alt="">
+          <span class="friends-city-weather">
+                <i class="wi wi-night-cloudy-windy"></i>
+                <span class="temp">29<sup>&deg;</sup></span>
+          </span>
+          <span class="detail">
+                Dhoni
+                <span class="city">
+                  Ranchi
+                </span>
+          <span class="country">
+                  India
+                </span>
+          </span>
+        </li>
+        <li>
+          <img src="https://s5.postimg.org/o6ajuxdnn/sachin.jpg" alt="">
+          <span class="friends-city-weather">
+                <i class="wi wi-night-sleet"></i>
+                <span class="temp">22<sup>&deg;</sup></span>
+          </span>
+          <span class="detail">
+                Sachin
+                <span class="city">
+                  Mumbai
+                </span>
+          <span class="country">
+                  India
+                </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="yt">
+  <a href="https://youtu.be/ObSpKBPMfYs" target="_blank">
+    <img width="151" src="https://s5.postimg.org/vzwuxmw87/template.png" alt="" />
+  </a>
+</div>
+
+
+
+
+
+
+
+
+
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
