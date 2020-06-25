@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <div id="nav"></div>
-    <div class="container">
+    <div class="container" v-if="current.sys">
       <div class="app">
         <div class="header">
           <img src="https://s5.postimg.org/7l2xf9mjr/mumbai.jpg" alt="">
           <span class="city">
             {{ current.name }} , {{ current.sys.country }}
             <i class="fa fa-map-marker"></i>
-            <span class="today">Today</span>
+            <span class="today">Today : {{ toDayDate() }}</span>
           </span>
           <span class="weather">
             <span class="temp">
@@ -18,24 +18,31 @@
             <span class="wind-scale">
               <table>
                 <tr>
-                  <td>Wind Direction</td>
+                  <td>Wind deg : {{ current.wind.deg }}</td>
                   <td>
                     <i class="wi wi-wind towards-45-deg"></i>
                   </td>
                 </tr>
                 <tr>
-                  <td>Wind Scale</td>
+                  <td>Wind Speed : {{ current.wind.speed }}</td>
                   <td>
+                    
                     <i class="wi wi-wind-beaufort-7"></i>
                   </td>
                 </tr>
+                
               </table>
             </span>
+            
             <i class="wi wi-night-sleet"></i>
             <span class="time">
               <i class="wi wi-time-3"></i>
             </span>
-            <span class="day">{{ toDayDate() }}</span>
+            <span class="day">
+              <select v-model="selected_city">
+                <option v-for="city in city_list" :key="city">{{ city }}</option>
+            </select>
+            </span>
           </span>
         </div>
         <div class="body">
@@ -81,75 +88,7 @@
             </ul>
           </div>
         </div>
-        <div class="footer">
-          <span class="title">Friends</span>
-          <ul class="friends">
-            <li>
-              <img src="https://s5.postimg.org/bc7wnuaub/hardik.jpg" alt="">
-              <span class="friends-city-weather">
-                <i class="wi wi-night-sprinkle"></i>
-                <span class="temp">25<sup>&deg;</sup></span>
-              </span>
-              <span class="detail">
-                Hardik
-                <span class="city">
-                  Surat
-                </span>
-                <span class="country">
-                  India
-                </span>
-              </span>
-            </li>
-            <li>
-              <img src="https://s5.postimg.org/89bry7l9f/virat.jpg" alt="">
-              <span class="friends-city-weather">
-                <i class="wi wi-night-cloudy-high"></i>
-                <span class="temp">21<sup>&deg;</sup></span>
-              </span>
-              <span class="detail">
-                Virat
-                <span class="city">
-                  Delhi
-                </span>
-                <span class="country">
-                  India
-                </span>
-              </span>
-            </li>
-            <li>
-              <img src="https://s5.postimg.org/cfwmdjkv7/dhoni.jpg" alt="">
-              <span class="friends-city-weather">
-                <i class="wi wi-night-cloudy-windy"></i>
-                <span class="temp">29<sup>&deg;</sup></span>
-              </span>
-              <span class="detail">
-                Dhoni
-                <span class="city">
-                  Ranchi
-                </span>
-                <span class="country">
-                  India
-                </span>
-              </span>
-            </li>
-            <li>
-              <img src="https://s5.postimg.org/o6ajuxdnn/sachin.jpg" alt="">
-              <span class="friends-city-weather">
-                <i class="wi wi-night-sleet"></i>
-                <span class="temp">22<sup>&deg;</sup></span>
-              </span>
-              <span class="detail">
-                Sachin
-                <span class="city">
-                  Mumbai
-                </span>
-                <span class="country">
-                  India
-                </span>
-              </span>
-            </li>
-          </ul>
-        </div>
+
       </div>
     </div>
 
@@ -168,23 +107,31 @@
     data(){
       return {
         current:[],
+        selected_city:'new delhi',
+        city_list:['new delhi','mau','mumbai','surat']
       }
     },
     mounted(){
-      this.currentData();
+      this.currentData(this.selected_city);
+    },
+    watch:{
+      selected_city:function(){
+        this.currentData(this.selected_city);
+      }
     },
     methods:{
-      async currentData(){
-        var api = "https://api.openweathermap.org/data/2.5/weather?q=mau&units=metric&appid="+process.env.VUE_APP_OPEN_WEATHER_KEY;
-        console.log(api);
+      async currentData(city){
+        console.log('city name : '+ city);
+        var api = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid="+process.env.VUE_APP_OPEN_WEATHER_KEY;
         const res = await fetch(api);
         const data = await res.json();
         this.current = data;
-        console.log(this.current);
       },
       toDayDate(){
         var d = new Date();
-        return d.toDateString();
+        var year = d.getFullYear();
+        var n = d.toDateString()
+        return n.replace(year,"");
       }
     }
 
@@ -193,5 +140,12 @@
 
 
 <style lang="scss">
-
+select{
+    height: 37px;
+    padding: 10px 10px;
+    width: 133px;
+    background: #49516d;
+    border: none;
+    color: white;
+}
 </style>
