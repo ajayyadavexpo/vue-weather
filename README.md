@@ -9,6 +9,7 @@ npm install
 
 ## API
 ```
+create .env file in vue-weather folder 
 Create account on openweather.org and paste api key in .env file
 ```
 
