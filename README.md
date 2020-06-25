@@ -1,5 +1,7 @@
 # Vue-weatherapp
 
+![alt text](https://github.com/AjayYadavAi/vue-weather/blob/master/image.png?raw=true)
+
 ## Project setup
 ```
 npm install
