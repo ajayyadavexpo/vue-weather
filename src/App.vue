@@ -23,53 +23,29 @@
         <div class="today-info-container">
           <div class="today-info">
             <div class="precipitation"> 
-              <span class="title"> PRECIPITATION</span>
-              <span class="value">0 %</span>
+              <span class="title"> Pressure</span>
+              <span class="value">{{ current.main.pressure }} hpa</span>
               <div class="clear"></div>
             </div>
             <div class="humidity">
               <span class="title"> HUMIDITY</span>
-              <span class="value"> 34 %</span>
+              <span class="value"> {{ current.main.humidity }} %</span>
               <div class="clear"></div>
             </div>
             <div class="wind">
               <span class="title"> WIND</span>
-              <span class="value"> 0 km/h</span>
+              <span class="value"> {{ current.wind.speed }} m/s</span>
               <div class="clear"></div>
             </div>
           </div>
         </div>
-        <div class="week-container">
-          <ul class="week-list">
-            <li class="active">
-              <i class="day-icon" data-feather="sun"></i>
-              <span class="day-name"> Tue</span>
-              <span class="day-temp"> 29°C</span>
-            </li>
-            <li>
-              <i class="day-icon" data-feather="cloud"></i>
-              <span class="day-name"> Wed</span>
-              <span class="day-temp"> 21°C</span>
-            </li>
-            <li>
-              <i class="day-icon" data-feather="cloud-snow"></i>
-              <span class="day-name"> Thu</span>
-              <span class="day-temp"> 08°C</span>
-            </li>
-            <li>
-              <i class="day-icon" data-feather="cloud-rain"></i>
-              <span class="day-name"> Fry</span>
-              <span class="day-temp"> 19°C</span>
-            </li>
-            <div class="clear"></div>
-          </ul>
-        </div>
 
         <div class="location-container">
-          <button class="location-button">
-            <i data-feather="map-pin"></i>
-            <span> Change location </span>
-          </button>
+            <span class="title"><b>Change Location</b></span><br><br>
+            <select v-model="selected_city">
+                <option v-for="city in city_list" :key="city">{{ city }}</option>
+            </select>
+
         </div>
 
       </div>
@@ -194,6 +170,7 @@
         this.currentData(this.selected_city);
       }
     },
+
     methods:{
       async currentData(city){
         console.log('city name : '+ city);

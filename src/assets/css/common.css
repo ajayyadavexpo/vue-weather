@@ -207,9 +207,10 @@ body {
   padding: 25px 35px;
 }
 
-.location-button {
+select{
+
   outline: none;
-  width: 100%;
+  width: 220px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: none;
@@ -229,13 +230,13 @@ body {
   transition: transform 200ms ease, -webkit-transform 200ms ease;
 }
 
-.location-button:hover {
+select:hover {
   -webkit-transform: scale(0.95);
       -ms-transform: scale(0.95);
           transform: scale(0.95);
 }
 
-.location-button .feather {
+select .feather {
   height: 1em;
   width: auto;
   margin-right: 5px;
